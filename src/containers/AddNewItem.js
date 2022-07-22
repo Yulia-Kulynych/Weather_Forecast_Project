@@ -20,7 +20,9 @@ export const AddNewItem=()=>{
         e.preventDefault();
         dispatch(addNewItem({
             name,
-            assignee 
+            assignee,
+            show:true,
+
         }))
 
     }, [name, assignee, dispatch ])

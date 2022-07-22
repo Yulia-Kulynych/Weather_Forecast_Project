@@ -43,15 +43,13 @@ export const EditItem=()=>{
             id,
             name,
             assignee,
-            
+            show:true,
         }))
 
     }, [name, assignee, dispatch ])
     
     return (
     <form onSubmit = {onSubmit}> 
-        
-        
         
         <div>Name:</div>
         <input value = {name} onChange={onNameChanged}/>
