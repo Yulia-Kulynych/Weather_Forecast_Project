@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import {BrowserRouter, Link} from 'react-router-dom'
+import { Provider } from 'react-redux'
+
+
 import './App.css';
+import {HomeRouter} from './containers/HomeRouter';
+import {store} from './rdx';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="Header">
+              <Link to ={'/'} className={'LinkItem'}>List</Link><br />
+              <Link to ={'add'} className={'LinkItem'}>add New</Link>
+              
+          </div>
+          <HomeRouter/>
+        </BrowserRouter> 
+     </Provider>
     </div>
   );
 }
 
 export default App;
+/*компонент Provider созадет store*/
+/*<Link to ={'edit/:id'} className={'LinkItem'}>Edit</Link>*/
