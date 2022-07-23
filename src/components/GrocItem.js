@@ -2,25 +2,25 @@ import { useCallback } from "react";
 import { Card, CardActions, CardContent, Button, Box } from "@mui/material";
 import { minWidth } from "@mui/system";
 import { Link } from "react-router-dom";
-import "./TodoItem.css";
+import "./GrocItem.css";
 
-export const TodoItem = ({ task, onDelete }) => {
+export const GrocItem = ({ product, onDelete }) => {
   const onDeleteCallback = useCallback(
     (e) => {
-      onDelete(task.id);
+      onDelete(product.id);
     },
-    [onDelete, task]
+    [onDelete, product]
   );
 
   return (
     <Box sx={{ minWidth: "150 px", margin: "10px" }}>
       <Card variant="outlined">
         <CardContent>
-          <div>{task.id}</div>
-          <div>{task.name}</div>
-          <div>{task.assignee}</div>
+          <div>{product.id}</div>
+          <div>{product.name}</div>
+          <div>{product.category}</div>
 
-          <Link to={"edit/" + task.id} className={"LinkItem"}>
+          <Link to={"edit/" + product.id} className={"LinkItem"}>
             <Button>Edit</Button>
           </Link>
 
@@ -35,5 +35,5 @@ export const TodoItem = ({ task, onDelete }) => {
   );
 };
 
-//tasks/${task.id}
-//{'edit/' + task.id}
+//products/${product.id}
+//{'edit/' + product.id}

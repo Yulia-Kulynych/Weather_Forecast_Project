@@ -1,48 +1,48 @@
 import { ADD_NEW_ITEM, REMOVE_ITEM, EDIT_ITEM, FILTERED_ITEM } from "./actions";
 
 const initialState = {
-  tasks: [
+  products: [
     {
       id: "1",
       name: "Milk",
-      assignee: "Milk_products",
+      category: "Milk_products",
       show: true,
     },
     {
       id: "2",
       name: "Cheese",
-      assignee: "Milk_products",
+      category: "Milk_products",
       show: true,
     },
     {
       id: "3",
       name: "Orange",
-      assignee: "Fruits",
+      category: "Fruits",
       show: true,
     },
     {
       id: "4",
       name: "Juice",
-      assignee: "Drinks",
+      category: "Drinks",
       show: true,
     },
     {
       id: "5",
       name: "Wine",
-      assignee: "Drinks",
+      category: "Drinks",
       show: true,
     },
   ],
   nextId: 6,
 };
 
-export const todolistReducer = (state = initialState, action) => {
+export const groclistReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_ITEM: {
       return {
         ...state,
-        tasks: [
-          ...state.tasks,
+        products: [
+          ...state.products,
           { ...action.payload, id: state.nextId }, //новий елемент
         ],
         nextId: state.nextId + 1, //id якого розраховуємо
@@ -51,7 +51,7 @@ export const todolistReducer = (state = initialState, action) => {
     case EDIT_ITEM: {
       return {
         ...state,
-        tasks: state.tasks.map((i) => {
+        products: state.products.map((i) => {
           if (i.id == action.payload.id) {
             return action.payload;
           } else {
@@ -63,14 +63,14 @@ export const todolistReducer = (state = initialState, action) => {
     case FILTERED_ITEM: {
       return {
         ...state,
-        tasks: state.tasks.map((i) => {
-          return i.assignee
+        products: state.products.map((i) => {
+          return i.category
             .toLowerCase()
-            .indexOf(action.payload.assignee.toLowerCase()) > -1 ||
-            !action.payload.assignee ||
-            i.assignee
+            .indexOf(action.payload.category.toLowerCase()) > -1 ||
+            !action.payload.category ||
+            i.category
               .toLowerCase()
-              .indexOf(action.payload.assignee.toLowerCase()) > -1
+              .indexOf(action.payload.category.toLowerCase()) > -1
             ? { ...i, show: true }
             : { ...i, show: false };
         }),
@@ -80,7 +80,7 @@ export const todolistReducer = (state = initialState, action) => {
     case REMOVE_ITEM: {
       return {
         ...state,
-        tasks: state.tasks.filter((i) => i.id !== action.payload), //що змінюється в tasks
+        products: state.products.filter((i) => i.id !== action.payload), //що змінюється в products
       };
     }
     default: {

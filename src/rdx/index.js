@@ -1,8 +1,8 @@
-import {createStore, combineReducers} from 'redux';
-import {todolistReducer} from './todoList/reducer';
+import { createStore, combineReducers } from "redux";
+import { groclistReducer } from "./grocList/reducer";
 
-export const store = createStore(combineReducers({
-    todo:todolistReducer, //todo:
-    
-}));
-
+export const store = createStore(
+  combineReducers({
+    groc: groclistReducer, //groc:
+  })
+);

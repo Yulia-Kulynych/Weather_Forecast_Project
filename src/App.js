@@ -1,11 +1,9 @@
-import {BrowserRouter, Link} from 'react-router-dom'
-import { Provider } from 'react-redux'
+import { BrowserRouter, Link } from "react-router-dom";
+import { Provider } from "react-redux";
 
-
-import './App.css';
-import {HomeRouter} from './containers/HomeRouter';
-import {store} from './rdx';
-
+import "./App.css";
+import { HomeRouter } from "./containers/HomeRouter";
+import { store } from "./rdx";
 
 function App() {
   return (
@@ -13,13 +11,19 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <div className="Header">
-              <Link to ={'/'} className={'LinkItem'}>List</Link><br />
-              <Link to ={'add'} className={'LinkItem'}>add New</Link>
-              
+            <Link to={"/"} className={"LinkItem"}>
+              List of products
+            </Link>
+            <br />
+            <Link to={"add"} className={"LinkItem"}>
+              Add New product
+            </Link>
+            <br /> <br />
+            <div>Filter by category</div>
           </div>
-          <HomeRouter/>
-        </BrowserRouter> 
-     </Provider>
+          <HomeRouter />
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }

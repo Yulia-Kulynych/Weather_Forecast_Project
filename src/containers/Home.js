@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTodoList } from "../rdx/todoList/selectors";
-import { TodoItem } from "../components/TodoItem";
-import { removeItem, filteredItem } from "../rdx/todoList/actions";
+import { selectGrocList } from "../rdx/grocList/selectors";
+import { GrocItem } from "../components/GrocItem";
+import { removeItem, filteredItem } from "../rdx/grocList/actions";
 import "./Home.css";
 
 export const Home = () => {
-  const items = useSelector(selectTodoList);
+  const items = useSelector(selectGrocList);
   const dispatch = useDispatch();
 
   const onItemDelete = useCallback(
@@ -17,8 +17,8 @@ export const Home = () => {
   );
 
   const onItemFiltrate = useCallback(
-    (assignee) => {
-      dispatch(filteredItem(assignee));
+    (category) => {
+      dispatch(filteredItem(category));
     },
     [dispatch]
   );
@@ -38,7 +38,11 @@ export const Home = () => {
         {items.map((i) => {
           if (i.show) {
             return (
-              <TodoItem key={i.id} task={i} onDelete={onItemDelete}></TodoItem>
+              <GrocItem
+                key={i.id}
+                product={i}
+                onDelete={onItemDelete}
+              ></GrocItem>
             );
           } else {
             return null;
