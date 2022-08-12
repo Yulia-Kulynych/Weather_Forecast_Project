@@ -1,9 +1,11 @@
 import { BrowserRouter, Link } from "react-router-dom";
 import { Provider } from "react-redux";
-
+// import Link from "@mui/material/Link";
 import "./App.css";
-import { HomeRouter } from "./containers/HomeRouter";
+import { HomeRouterW } from "./containers/HomeRouterW";
 import { store } from "./rdx";
+import { FormCity } from "./components/FormCity";
+import { SignOut } from "./containers/SignOut";
 
 function App() {
   return (
@@ -11,17 +13,31 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <div className="Header">
+            <Link to={"history"} className={"LinkItem"}>
+              Hystory
+            </Link>
             <Link to={"/"} className={"LinkItem"}>
-              List of products
+              {/* <Link to={"home"} className={"LinkItem"}> */}
+              Today
             </Link>
-            <br />
-            <Link to={"add"} className={"LinkItem"}>
-              Add New product
+
+            <Link to={"forecast"} className={"LinkItem"}>
+              Forecast
             </Link>
-            <br /> <br />
-            <div>Filter by category</div>
+            <Link to={"sport"} className={"LinkItem"}>
+              Sport
+            </Link>
+            <Link to={"logIn"} className={"LinkItem"}>
+              {/* <Link to={"/"} className={"LinkItem"}> */}
+              LogIn
+            </Link>
+            <SignOut>SignOut</SignOut>
           </div>
-          <HomeRouter />
+          <div>
+            <br />
+            <FormCity>City</FormCity>
+          </div>
+          <HomeRouterW />
         </BrowserRouter>
       </Provider>
     </div>
