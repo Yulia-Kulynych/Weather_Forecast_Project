@@ -59,19 +59,10 @@ export const FormCity = () => {
     "Andorra",
     "Zagreb",
     "Vilnius",
-
     "Vienna",
     "Rome",
     "Lisbon",
   ];
-  // const cities = [
-  //   { label: "Kiev" },
-  //   { label: "Paris" },
-  //   { label: "Berlin" },
-  //   { label: "Vienna" },
-  //   { label: "Rome" },
-  //   { label: "Lisbon" },
-  // ];
 
   const [value, setValue] = React.useState(options[0]);
 
@@ -93,39 +84,5 @@ export const FormCity = () => {
       </div>
       <button type="submit">Get weather data</button>
     </form>
-    // <form onSubmit={onSubmit}>
-    //   <Autocomplete
-    //     // onChange={onChangeCity}
-    //     // value={city}
-    //     disablePortal
-    //     id="combo-box-demo"
-    //     options={cities}
-    //     sx={{ width: 300 }}
-    //     renderInput={(params) => (
-    //       <TextField
-    //         {...params}
-    //         label="Choose the city"
-    //         onChange={onChangeCity}
-    //       />
-    //     )}
-    //   />
-    //   <button type="submit">Get weather data</button>
-    // </form>
-
-    // <form onSubmit={onSubmit}>
-    //   <select onChange={onChangeCity} value={city}>
-    //     <option value="" default>
-    //       Choose the city
-    //     </option>
-    //     <option value="London">London</option>
-    //     <option value="Paris">Paris</option>
-    //     <option value="Vienna">Vienna</option>
-    //     <option value="Berlin">Berlin</option>
-    //     <option value="Rome">Rome</option>
-    //     <option value="Kiev">Kyiv</option>
-    //     <option value="Lisbon">Lisbon</option>
-    //   </select>
-    //   <button type="submit">Get weather data</button>
-    // </form>
   );
 };

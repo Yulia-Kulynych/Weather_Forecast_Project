@@ -3,7 +3,6 @@ import { Card, CardActions, CardContent, Button, Box } from "@mui/material";
 import { Hours } from "./Hours";
 import { minWidth } from "@mui/system";
 import { Link } from "react-router-dom";
-// import "./GrocItem.css";
 
 export const WeatherItem = ({ oneElement }) => {
   const [show, setShow] = useState(false);
@@ -72,25 +71,3 @@ export const WeatherItem = ({ oneElement }) => {
     </div>
   );
 };
-
-//products/${product.id}
-//{'edit/' + product.id}
-
-//<div>{product.id}</div>
-//<div>{product.name}</div>
-//<div>{product.category}</div>
-
-{
-  /* <CardContent>
-            <div>TODAY</div>
-            <div>{oneElement.location.name}</div>
-            <div>{oneElement.location.country}</div>
-            <div>{oneElement.forecast.forecastday[0].date}</div>
-            <div>maxtemp </div>
-            <div>{oneElement.forecast.forecastday[0].day.maxtemp_c} C</div>
-            <div>maxtemp at time </div>
-            <div>{oneElement.forecast.forecastday[0].hour[8].time}</div>
-            <div>{oneElement.forecast.forecastday[0].hour[8].temp_c} C</div>
-            <div>{oneElement.forecast.forecastday[0].day.maxtemp_f} F</div>
-          </CardContent> */
-}

@@ -5,8 +5,6 @@ import { Forecast } from "./Forecast";
 import { Sport } from "./Sport";
 import { UserForm } from "./UserForm";
 import { RequireAuth } from "./RequireAuth";
-// import { AuthProvide } from "./AuthProvide";
-// import { WeatherItemHistory } from "../components/WeatherItemHistory";
 
 export const HomeRouterW = () => {
   //функція яка повертає JSX

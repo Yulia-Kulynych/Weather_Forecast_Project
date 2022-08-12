@@ -20,7 +20,6 @@ function App() {
               {/* <Link to={"home"} className={"LinkItem"}> */}
               Today
             </Link>
-
             <Link to={"forecast"} className={"LinkItem"}>
               Forecast
             </Link>

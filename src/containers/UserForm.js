@@ -17,6 +17,7 @@ export const UserForm = () => {
 
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
@@ -39,6 +40,17 @@ export const UserForm = () => {
   const onEmailChanged = useCallback(
     (event) => {
       setEmail(event.target.value);
+      const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (
+        // event.target.value.match(mailformat) &&
+        mailformat.test(event.target.value) === true
+      ) {
+        setValidEmail(true);
+        console.log("mail is valid");
+      } else {
+        setValidEmail(false);
+        console.log("input valid email");
+      }
     },
     [setEmail]
   );
@@ -64,11 +76,12 @@ export const UserForm = () => {
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      //
-      localStorage.setItem("userData", JSON.stringify(logInUserData));
-      console.log(localStorage.getItem("userData"));
 
-      dispatch(addNewUser(logInUserData));
+      if (validEmail) {
+        localStorage.setItem("userData", JSON.stringify(logInUserData));
+        console.log(localStorage.getItem("userData"));
+        dispatch(addNewUser(logInUserData));
+      } else console.log("input valid email");
     },
     [userName, lastName, email, phone, password, dispatch]
   );
@@ -84,27 +97,41 @@ export const UserForm = () => {
         type="text"
         value={userName}
         onChange={onUserNameChanged}
+        placeholder="Name"
         required
       />
       <br />
-
       <div>Last Name:</div>
       <input
         type="text"
         value={lastName}
         onChange={onLastNameChanged}
         required
+        placeholder="LastName"
       />
       <br />
-
       <div>E-mail:</div>
-      <input type="text" value={email} onChange={onEmailChanged} required />
+      <input
+        type="text"
+        value={email}
+        onChange={onEmailChanged}
+        required
+        placeholder="NameLastName@gmail.com"
+      />{" "}
+      {email && !validEmail && (
+        <span className="error">Enter a valid email</span>
+      )}
       <br />
-
       <div>Phone:</div>
-      <input type="text" value={phone} onChange={onPhoneChanged} required />
+      <input
+        type="text"
+        value={phone}
+        onChange={onPhoneChanged}
+        required
+        pattern="+[0-9]"
+        placeholder="+380990000000"
+      />
       <br />
-
       <div>Password:</div>
       <input
         type="password"
@@ -113,38 +140,7 @@ export const UserForm = () => {
         required
       />
       <br />
-
       <input type={"submit"} value={"Submit"} />
     </form>
   );
 };
-// /*<div>Id:</div>
-//         <input value = {product.id} onChange={onIdChanged}/>
-//         <br />*/
-//   useEffect(
-//     (event) => {
-//       if (user) {
-//         userName(user.userName);
-//         setLastName(user.userName);
-//         setEmail(user.email);
-//         setPhone(user.phone);
-//         setPassword(user.password);
-//       }
-//     },
-//     [user]
-//   );
-
-// //     dispatch(
-//     addNewUser({
-//         //   userName,
-//           //   lastName,
-//           //   email,
-//           //   phone,
-//           //   password,
-//           // }
-
-//       )
-//     );
-//   },
-//   [userName, lastName, email, phone, password, dispatch]
-// );{

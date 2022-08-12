@@ -33,19 +33,3 @@ export const HomeW = () => {
     </div>
   );
 };
-
-// {show && (
-//   <div>
-//     {i.hour.map((h) => (
-//       <Hours key={h.time} iElement={h}></Hours>
-//     ))}
-//   </div>
-// )}
-
-// {localStorage.getItem(userName)
-//   ? (i.hour.map((ii) => {
-//       <Hours key={ii.time} iElement={ii}></Hours>;
-//     }))
-//   : }
-
-//import { UserForm } from "../components/WeatherItem";
