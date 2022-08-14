@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectUser } from "../rdx/grocList/selectorsU";
+import { selectUser } from "../../rdx/weatherSportUser/user/selectorsU";
 
 export const RequireAuth = ({ children }) => {
   const location = useLocation();

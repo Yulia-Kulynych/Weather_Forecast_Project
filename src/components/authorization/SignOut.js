@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import { removeUser } from "../rdx/grocList/actionsUser";
+import { useCallback } from "react";
+import { removeUser } from "../../rdx/weatherSportUser/user/actionsUser";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux/es/exports";
 

@@ -4,7 +4,7 @@ import "./App.css";
 import { HomeRouterW } from "./containers/HomeRouterW";
 import { store } from "./rdx";
 import { FormCity } from "./components/FormCity";
-import { SignOut } from "./containers/SignOut";
+import { SignOut } from "./containers/authorization/SignOut";
 import { SwitchUnits } from "./components/SwitchUnits ";
 
 function App() {

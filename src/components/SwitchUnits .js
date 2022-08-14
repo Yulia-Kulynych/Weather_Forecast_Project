@@ -1,7 +1,7 @@
 import { Switch } from "@mui/material";
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeUnits } from "../rdx/grocList/actionsUser";
+import { changeUnits } from "../rdx/weatherSportUser/user/actionsUser";
 
 export const SwitchUnits = () => {
   const [checked, setChecked] = useState(true);

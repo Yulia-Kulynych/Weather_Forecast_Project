@@ -3,8 +3,8 @@ import { HomeW } from "./HomeW";
 import { History } from "./History";
 import { Forecast } from "./Forecast";
 import { Sport } from "./Sport";
-import { UserForm } from "./UserForm";
-import { RequireAuth } from "./RequireAuth";
+import { UserForm } from "../components/authorization/UserForm";
+import { RequireAuth } from "../components/authorization/RequireAuth";
 
 export const HomeRouterW = () => {
   //функція яка повертає JSX

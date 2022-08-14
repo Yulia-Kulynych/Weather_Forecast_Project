@@ -1,7 +1,7 @@
 import { WeatherItemHistory } from "../components/WeatherItemHistory";
 import { useSelector } from "react-redux";
-import { selectWeatherHSportList } from "../rdx/grocList/selectorsWH";
-import { selectUserSettings } from "../rdx/grocList/selectorsUST";
+import { selectWeatherHSportList } from "../rdx/weatherSportUser/weather_sport/selectorsWH";
+import { selectUserSettings } from "../rdx/weatherSportUser/user/selectorsUST";
 import "./Home.css";
 
 export const History = () => {

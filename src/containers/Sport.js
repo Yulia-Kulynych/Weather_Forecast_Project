@@ -1,6 +1,6 @@
 import { SportItem } from "../components/SportItem";
 import { useSelector } from "react-redux";
-import { selectWeatherSportList } from "../rdx/grocList/selectorsS";
+import { selectWeatherSportList } from "../rdx/weatherSportUser/weather_sport/selectorsS";
 import "./Home.css";
 
 export const Sport = () => {

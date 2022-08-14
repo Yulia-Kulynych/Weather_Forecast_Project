@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { weatherSportlistReducer } from "./grocList/reducerW";
-import { userLogInSettingstReducer } from "./grocList/reducerUser";
+import { weatherSportlistReducer } from "./weatherSportUser/weather_sport/reducerW";
+import { userLogInSettingstReducer } from "./weatherSportUser/user/reducerUser";
 import thunk from "redux-thunk";
 
 const logger = (store) => (next) => (action) => {

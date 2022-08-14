@@ -1,8 +1,8 @@
 // import { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectWeatherSportList } from "../rdx/grocList/selectorsW";
-import { selectWeatherSportListError } from "../rdx/grocList/selectorsEr";
-import { selectUserSettings } from "../rdx/grocList/selectorsUST";
+import { selectWeatherSportList } from "../rdx/weatherSportUser/weather_sport/selectorsW";
+import { selectWeatherSportListError } from "../rdx/weatherSportUser/selectorsEr";
+import { selectUserSettings } from "../rdx/weatherSportUser/user/selectorsUST";
 import { WeatherItem } from "../components/WeatherItem";
 import "./Home.css";
 

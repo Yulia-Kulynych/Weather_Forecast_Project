@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/exports";
-import { addNewUser } from "../rdx/grocList/actionsUser";
-import { selectUser } from "../rdx/grocList/selectorsU";
+import { addNewUser } from "../../rdx/weatherSportUser/user/actionsUser";
+import { selectUser } from "../../rdx/weatherSportUser/user/selectorsU";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const UserForm = () => {
