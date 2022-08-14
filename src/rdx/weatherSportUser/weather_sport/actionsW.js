@@ -47,7 +47,7 @@ export const fetchItems = (city) => {
       dispatch(fetchItemsSuccess(data));
     } catch (error) {
       console.log(error);
-      dispatch(fetchItemsFailure(error.message)); //error.messsage
+      dispatch(fetchItemsFailure(error.message));
     }
   };
 };
@@ -60,6 +60,18 @@ export const fetchItemsHSuccess = (dataArray) => {
   return {
     type: FETCH_ITEMSH_ACTION_SUCCESS,
     items: dataArray,
+  };
+};
+export const fetchItemsHRequest = () => {
+  return {
+    type: FETCH_ITEMSH_ACTION_REQUEST,
+  };
+};
+
+export const fetchItemsHFailure = (error) => {
+  return {
+    type: FETCH_ITEMSH_ACTION_FAILURE,
+    error,
   };
 };
 
@@ -158,6 +170,7 @@ export const fetchItemsH = (city) => {
   }
 
   return async (dispatch, getState) => {
+    dispatch(fetchItemsRequest());
     try {
       const responseH = await fetch(
         `https://weatherapi-com.p.rapidapi.com/history.json?q=${city}&dt=${twodaysBeforeYesterdayDate}&lang=en&end_dt=${yesterdayDate}`,
@@ -176,7 +189,8 @@ export const fetchItemsH = (city) => {
       console.log("data:", dataH);
       dispatch(fetchItemsHSuccess(dataH));
     } catch (error) {
-      console.log("error", error);
+      console.log(error);
+      dispatch(fetchItemsHFailure(error.message));
     }
   };
 };
@@ -192,6 +206,19 @@ export const fetchItemsSportSuccess = (dataArray) => {
   };
 };
 
+export const fetchItemsSRequest = () => {
+  return {
+    type: FETCH_ITEMSS_ACTION_REQUEST,
+  };
+};
+
+export const fetchItemsSFailure = (error) => {
+  return {
+    type: FETCH_ITEMSS_ACTION_FAILURE,
+    error,
+  };
+};
+
 export const fetchItemsS = (city) => {
   console.log(city);
 
@@ -200,7 +227,7 @@ export const fetchItemsS = (city) => {
       const responseS = await fetch(
         `https://weatherapi-com.p.rapidapi.com/sports.json?q=${city}`,
         {
-          method: "GET",
+          method: "GETT",
           headers: {
             "X-RapidAPI-Key":
               "2ced90d541msh9e0c6a4327850f6p1ed5f7jsne629a715dd0b",
@@ -213,12 +240,8 @@ export const fetchItemsS = (city) => {
       console.log("data:", dataS);
       dispatch(fetchItemsSportSuccess(dataS));
     } catch (error) {
-      console.log("error", error);
+      console.log(error);
+      dispatch(fetchItemsSFailure(error.message));
     }
   };
 };
-// `https://weatherapi-com.p.rapidapi.com/history.json?q=${city}&dt=${todayDay}&lang=en`,
-//"https://weatherapi-com.p.rapidapi.com/history.json?q=Paris&dt=2022-07-29&lang=en",
-//'https://weatherapi-com.p.rapidapi.com/history.json'?'${value}'&'dt=2022-07-29&lang=en',
-// `${API_ENDPOINTS.paymentBalance}?${requestQuery}`
-//https://weatherapi-com.p.rapidapi.com/history.json?q=London&dt=2022-08-02&lang=en
