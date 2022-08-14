@@ -53,6 +53,3 @@ export const weatherSportlistReducer = (state = initialState, action) => {
     }
   }
 };
-
-// ...state,
-//         info: { ...state.info, dataServer: action.items },

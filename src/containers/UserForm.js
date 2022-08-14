@@ -2,7 +2,6 @@ import { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/exports";
 import { addNewUser } from "../rdx/grocList/actionsUser";
-// import { useParams } from "react-router-dom";
 import { selectUser } from "../rdx/grocList/selectorsU";
 import { useLocation, useNavigate } from "react-router-dom";
 

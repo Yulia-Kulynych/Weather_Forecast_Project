@@ -1,12 +1,8 @@
 import { useCallback, useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-import { Card, CardActions, CardContent, Button, Box } from "@mui/material";
-import { minWidth } from "@mui/system";
-import { Link } from "react-router-dom";
+import { Card, CardContent, Box } from "@mui/material";
 import { Hours } from "./Hours";
-// import "./GrocItem.css";
 
-export const WeatherItemHistory = ({ oneElementHistory }) => {
+export const WeatherItemHistory = ({ oneElementHistory, unitsUser }) => {
   const [show, setShow] = useState(false);
 
   const buttonOnHourClick = useCallback(
@@ -40,17 +36,34 @@ export const WeatherItemHistory = ({ oneElementHistory }) => {
                     <CardContent>
                       <div>
                         <div>{i.date}</div>
-                        <div>Temperature {i.day.maxtemp_c} C</div>
-                        <div>
-                          <img src={i.day.condition.icon} />
-                        </div>
-                        <div>Wind {i.day.maxwind_kph}km/h</div>
-                        <div>Humidity {i.day.avghumidity}</div>
 
+                        {unitsUser ? (
+                          <div>
+                            <div>Temperature {i.day.maxtemp_c} C</div>
+                            <div>
+                              <img src={i.day.condition.icon} />
+                            </div>
+                            <div>Wind {i.day.maxwind_kph}km/h</div>
+                            <div>Humidity {i.day.avghumidity}</div>
+                          </div>
+                        ) : (
+                          <div>
+                            <div>Temperature {i.day.maxtemp_f} F</div>
+                            <div>
+                              <img src={i.day.condition.icon} />
+                            </div>
+                            <div>Wind {i.day.maxwind_mph}m/h</div>
+                            <div>Humidity {i.day.avghumidity}</div>
+                          </div>
+                        )}
                         {show && (
                           <div>
                             {i.hour.map((h) => (
-                              <Hours key={h.time} iElement={h}></Hours>
+                              <Hours
+                                key={h.time}
+                                iElement={h}
+                                unitsUser={unitsUser}
+                              ></Hours>
                             ))}
                           </div>
                         )}

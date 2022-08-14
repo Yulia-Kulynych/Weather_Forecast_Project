@@ -17,7 +17,6 @@ export const SignOut = () => {
     [dispatch]
   );
 
-  // return <input type="button" value="" onClick={onSignOutClick} />;
   return (
     <Button
       variant="outlined"

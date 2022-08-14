@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { weatherSportlistReducer } from "./grocList/reducerW"; // import { groclistReducer } from "./grocList/reducer";
+import { weatherSportlistReducer } from "./grocList/reducerW";
 import { userLogInSettingstReducer } from "./grocList/reducerUser";
 import thunk from "redux-thunk";
 

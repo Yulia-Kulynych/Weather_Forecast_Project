@@ -1,31 +1,25 @@
 // import { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectWeatherSportList } from "../rdx/grocList/selectorsW";
-import { WeatherItemHistory } from "../components/WeatherItemHistory";
+import { selectUserSettings } from "../rdx/grocList/selectorsUST";
 import { WeatherItem } from "../components/WeatherItem";
 import "./Home.css";
-import { UserForm } from "./UserForm";
 
 export const HomeW = () => {
   const items = useSelector(selectWeatherSportList);
   console.log(items);
-
-  // const [show, setShow] = useState(false);
-
-  // const buttonOnHourClick = useCallback(
-  //   (event) => {
-  //     event.preventDefault();
-  //     console.log(event);
-  //     setShow(true);
-  //   },
-  //   [setShow]
-  // );
+  const unitsUser = useSelector(selectUserSettings);
+  console.log(unitsUser);
 
   return (
     <div>
       <div className="Home">
         {items ? (
-          <WeatherItem key={items.id} oneElement={items}></WeatherItem>
+          <WeatherItem
+            key={items.id}
+            oneElement={items}
+            unitsUser={unitsUser}
+          ></WeatherItem>
         ) : (
           <div>Loading...</div>
         )}

@@ -1,11 +1,11 @@
 import { BrowserRouter, Link } from "react-router-dom";
 import { Provider } from "react-redux";
-// import Link from "@mui/material/Link";
 import "./App.css";
 import { HomeRouterW } from "./containers/HomeRouterW";
 import { store } from "./rdx";
 import { FormCity } from "./components/FormCity";
 import { SignOut } from "./containers/SignOut";
+import { SwitchUnits } from "./components/SwitchUnits ";
 
 function App() {
   return (
@@ -35,6 +35,7 @@ function App() {
           <div>
             <br />
             <FormCity>City</FormCity>
+            <SwitchUnits />
           </div>
           <HomeRouterW />
         </BrowserRouter>

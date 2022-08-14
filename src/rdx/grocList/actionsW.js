@@ -138,7 +138,7 @@ export const fetchItemsH = (city) => {
       console.log(twodaysBeforeYesterdayDate);
     }
   } else {
-    dayBeforeYesterdayDate = `${todayYear}-${todayMonth}-${+todayDay - 3}`;
+    twodaysBeforeYesterdayDate = `${todayYear}-${todayMonth}-${+todayDay - 3}`;
     console.log(twodaysBeforeYesterdayDate);
   }
 

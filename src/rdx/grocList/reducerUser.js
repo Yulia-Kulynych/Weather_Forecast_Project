@@ -1,7 +1,6 @@
 import { ADD_NEW_USER } from "./actionsUser";
 import { REMOVE_USER } from "./actionsUser";
-// import { FETCH_ITEMSH_ACTION_SUCCESS } from "./actionsW";
-// import { FETCH_ITEMSS_ACTION_SUCCESS } from "./actionsW";
+import { CHANGE_UNITS } from "./actionsUser";
 
 const initialState = {
   logIn: localStorage.getItem("userData") //проверяем есть ли данные
@@ -14,7 +13,7 @@ const initialState = {
         phone: "",
         password: "",
       },
-  settings: {},
+  settings: { units: true },
 };
 
 export const userLogInSettingstReducer = (state = initialState, action) => {
@@ -35,6 +34,12 @@ export const userLogInSettingstReducer = (state = initialState, action) => {
           phone: "",
           password: "",
         },
+      };
+    }
+    case CHANGE_UNITS: {
+      return {
+        ...state,
+        settings: { units: action.unitsInfo },
       };
     }
     default: {

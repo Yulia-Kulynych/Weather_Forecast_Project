@@ -1,7 +1,4 @@
-import { useCallback } from "react";
-import { Card, CardActions, CardContent, Button, Box } from "@mui/material";
-import { minWidth } from "@mui/system";
-import { Link } from "react-router-dom";
+import { Card, CardContent, Box } from "@mui/material";
 import "./Sport.css";
 
 export const SportItem = ({ oneElement }) => {
