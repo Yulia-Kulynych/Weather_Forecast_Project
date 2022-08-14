@@ -62,6 +62,8 @@ export const FormCity = () => {
     "Vienna",
     "Rome",
     "Lisbon",
+    "Toronto",
+    "Los Angeles",
   ];
 
   const [value, setValue] = React.useState(options[0]);

@@ -8,6 +8,17 @@ export const fetchItemsSuccess = (dataArray) => {
     items: dataArray,
   };
 };
+export const fetchItemsRequest = () => {
+  return {
+    type: FETCH_ITEMS_ACTION_REQUEST,
+  };
+};
+export const fetchItemsFailure = (error) => {
+  return {
+    type: FETCH_ITEMS_ACTION_FAILURE,
+    error,
+  };
+};
 
 export const fetchItems = (city) => {
   console.log(city);
@@ -15,9 +26,11 @@ export const fetchItems = (city) => {
   // let todayDay = today.toISOString().split("T")[0];
 
   return async (dispatch, getState) => {
+    dispatch(fetchItemsRequest());
     try {
       const response = await fetch(
         `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`,
+        // `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`,
         {
           method: "GET",
           headers: {
@@ -30,9 +43,11 @@ export const fetchItems = (city) => {
       console.log("response:", response);
       const data = await response.json();
       console.log("data:", data);
+
       dispatch(fetchItemsSuccess(data));
     } catch (error) {
-      console.log("error", error);
+      console.log(error);
+      dispatch(fetchItemsFailure(error.message)); //error.messsage
     }
   };
 };
