@@ -30,7 +30,7 @@ export const fetchItems = (city) => {
     try {
       const response = await fetch(
         `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`,
-        // `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`,
+
         {
           method: "GET",
           headers: {
@@ -185,7 +185,9 @@ export const fetchItemsH = (city) => {
         }
       );
       console.log("responseH:", responseH);
+
       const dataH = await responseH.json();
+
       console.log("data:", dataH);
       dispatch(fetchItemsHSuccess(dataH));
     } catch (error) {
@@ -227,7 +229,7 @@ export const fetchItemsS = (city) => {
       const responseS = await fetch(
         `https://weatherapi-com.p.rapidapi.com/sports.json?q=${city}`,
         {
-          method: "GETT",
+          method: "GET",
           headers: {
             "X-RapidAPI-Key":
               "2ced90d541msh9e0c6a4327850f6p1ed5f7jsne629a715dd0b",

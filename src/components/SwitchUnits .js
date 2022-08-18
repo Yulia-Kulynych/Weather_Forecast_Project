@@ -2,6 +2,7 @@ import { Switch } from "@mui/material";
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeUnits } from "../rdx/weatherSportUser/user/actionsUser";
+import "./Weather.css";
 
 export const SwitchUnits = () => {
   const [checked, setChecked] = useState(true);
@@ -22,7 +23,7 @@ export const SwitchUnits = () => {
         onChange={onChangeUnits}
         inputProps={{ "aria-label": "controlled" }}
       />
-      <div>metric/imperial </div>
+      <div className="metr_imper">metric/imperial </div>
     </div>
   );
 };

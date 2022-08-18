@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { Card, CardContent, Button, Box } from "@mui/material";
 import { Hours } from "./Hours";
+import "./Weather.css";
 
 export const WeatherItem = ({ oneElement, unitsUser }) => {
   const [show, setShow] = useState(false);
@@ -10,21 +11,20 @@ export const WeatherItem = ({ oneElement, unitsUser }) => {
     (event) => {
       event.preventDefault();
       console.log(event);
-      setShow(true);
+      setShow(!show); // setShow(true);
     },
-    [setShow]
+    [show, setShow]
   );
   return (
     <div>
       {oneElement.forecast ? (
         <div>
-          {" "}
-          <br />
+          {/* <br />
           <div>{oneElement.location.name}</div>
           <div>{oneElement.location.country}</div>
-          <br />
-          <button onClick={buttonOnHourClick}>
-            by hours
+          <br /> */}
+          <button onClick={buttonOnHourClick} className="cardButtonHours">
+            <div className="by_hours">by hours</div>
             <Box
               className="Boxes"
               key={oneElement.current.last_updated}
@@ -33,31 +33,61 @@ export const WeatherItem = ({ oneElement, unitsUser }) => {
               <Card variant="outlined">
                 <CardContent>
                   <div>
-                    <div>Current weather </div>
-                    <div>{oneElement.current.last_updated}</div>
-                    <div>
-                      <img src={oneElement.current.condition.icon} />
-                    </div>
-
                     {unitsUser ? (
                       <div>
-                        <div>Temperature {oneElement.current.temp_c} C</div>
-                        <div> </div>
-                        <div>Feels like {oneElement.current.feelslike_c} C</div>
-                        <div>Wind {oneElement.current.wind_kph} km/h</div>
-                        <div>Pressue {oneElement.current.pressure_mb} mb</div>
+                        <div className="Temp">
+                          {oneElement.current.temp_c}C{/* Temperature{" "} */}
+                        </div>
+                        <div className="cityName">
+                          {/* {oneElement.location.name} */}
+                        </div>
+
+                        <div>
+                          <img src={oneElement.current.condition.icon} />
+                        </div>
+                        <div className="weath_sum">
+                          <div>{oneElement.current.condition.text}</div>
+                          <div>Current weather </div>
+                          <div>{oneElement.current.last_updated}</div>
+                          <br />
+                        </div>
+                        <div>
+                          Feels like..... {oneElement.current.feelslike_c} C
+                        </div>
+                        <div>Wind....... {oneElement.current.wind_mph} m/h</div>
+                        <div>
+                          Pressue... {oneElement.current.pressure_mb} mb
+                        </div>
                       </div>
                     ) : (
                       <div>
-                        <div>Temperature {oneElement.current.temp_f} F</div>
-                        <div> </div>
-                        <div>Feels like {oneElement.current.feelslike_f} F</div>
-                        <div>Wind {oneElement.current.wind_mph} m/h</div>
-                        <div>Pressue {oneElement.current.pressure_in} in</div>
+                        <div className="Temp">{oneElement.current.temp_f}F</div>
+                        <div>
+                          <img src={oneElement.current.condition.icon} />
+                        </div>
+
+                        <div className="weath_sum">
+                          <div>{oneElement.current.condition.text}</div>
+                          <div>Current weather </div>
+                          <div>{oneElement.current.last_updated}</div>
+                          <br />
+                        </div>
+
+                        <div>
+                          Feels like..... {oneElement.current.feelslike_f} F
+                        </div>
+                        <div>
+                          Wind.......... {oneElement.current.wind_kph} km/h
+                        </div>
+                        <div>
+                          Pressue.... {oneElement.current.pressure_in} in
+                        </div>
                       </div>
                     )}
+                    {/* <div>Current weather </div>
+                    <div>{oneElement.current.last_updated}</div> */}
 
-                    {show && (
+                    {show ? (
                       <div>
                         {oneElement.forecast.forecastday[0].hour.map((h) => (
                           <Hours
@@ -67,11 +97,13 @@ export const WeatherItem = ({ oneElement, unitsUser }) => {
                           ></Hours>
                         ))}
                       </div>
+                    ) : (
+                      <div></div>
                     )}
                   </div>
                 </CardContent>
               </Card>
-            </Box>{" "}
+            </Box>
           </button>
         </div>
       ) : (

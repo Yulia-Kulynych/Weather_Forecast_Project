@@ -28,16 +28,16 @@ const initialState = {
     dataServerHistory: {},
     dataServerSport: {},
   },
-  profile: {
-    logIn: {
-      userName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      pssword: "",
-    },
-    settings: {},
-  },
+  // profile: {
+  //   logIn: {
+  //     userName: "",
+  //     lastName: "",
+  //     email: "",
+  //     phone: "",
+  //     pssword: "",
+  //   },
+  //   settings: {},
+  // },
 };
 
 export const weatherSportlistReducer = (state = initialState, action) => {

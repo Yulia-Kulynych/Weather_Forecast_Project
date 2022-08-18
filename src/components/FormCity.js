@@ -7,6 +7,8 @@ import {
 import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { Button } from "@mui/material";
+
 import * as React from "react";
 
 export const FormCity = () => {
@@ -34,14 +36,16 @@ export const FormCity = () => {
     [dispatch, city]
   );
   const options = [
-    "City",
-    "Reykjavik",
+    "Rome",
+    "Lisbon",
+    "London",
     "Paris",
     "Berlin",
     "Bucharest",
     "Brussels",
     "Sofia",
     "Prague",
+    "Reykjavik",
     "Copenhagen",
     "Tallinn",
     "Helsinki",
@@ -64,13 +68,13 @@ export const FormCity = () => {
     "Zagreb",
     "Vilnius",
     "Vienna",
-    "Rome",
-    "Lisbon",
+    "Poltava",
+    "Kharkov",
     "Toronto",
     "Los Angeles",
   ];
 
-  const [value, setValue] = React.useState(options[0]);
+  // const [value, setValue] = React.useState(options[0]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -78,7 +82,7 @@ export const FormCity = () => {
         {/* <div>{`value: ${value !== null ? `'${value}'` : "null"}`}</div> */}
         <br />
         <Autocomplete
-          value={value}
+          value={city}
           onChange={onChangeCity}
           id="controllable-states-demo"
           options={options}
@@ -88,7 +92,11 @@ export const FormCity = () => {
           )}
         />
       </div>
-      <button type="submit">Get weather data</button>
+      {/* <button type="submit">Get weather data</button> */}
+      <br />
+      <Button type="submit" variant="contained" size="small">
+        Get data
+      </Button>
     </form>
   );
 };

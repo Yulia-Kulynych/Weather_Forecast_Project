@@ -3,39 +3,23 @@ import { Provider } from "react-redux";
 import "./App.css";
 import { HomeRouterW } from "./containers/HomeRouterW";
 import { store } from "./rdx";
-import { FormCity } from "./components/FormCity";
-import { SignOut } from "./containers/authorization/SignOut";
-import { SwitchUnits } from "./components/SwitchUnits ";
+import { City_Units } from "./containers/City_Units";
+import { Header } from "./containers/Header";
+// import { SignOut } from "./components/authorization/SignOut";
+// import { FormCity } from "./components/FormCity";
+// import { SwitchUnits } from "./components/SwitchUnits ";
+// import { Button } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
         <BrowserRouter>
-          <div className="Header">
-            <Link to={"history"} className={"LinkItem"}>
-              Hystory
-            </Link>
-            <Link to={"/"} className={"LinkItem"}>
-              {/* <Link to={"home"} className={"LinkItem"}> */}
-              Today
-            </Link>
-            <Link to={"forecast"} className={"LinkItem"}>
-              Forecast
-            </Link>
-            <Link to={"sport"} className={"LinkItem"}>
-              Sport
-            </Link>
-            <Link to={"logIn"} className={"LinkItem"}>
-              {/* <Link to={"/"} className={"LinkItem"}> */}
-              LogIn
-            </Link>
-            <SignOut>SignOut</SignOut>
-          </div>
+          <Header></Header>
           <div>
             <br />
-            <FormCity>City</FormCity>
-            <SwitchUnits />
+            <City_Units></City_Units>
+            <br />
           </div>
           <HomeRouterW />
         </BrowserRouter>

@@ -21,13 +21,15 @@ export const SportItem = ({ oneElement }) => {
                   console.log(i);
 
                   return (
-                    <div>
+                    <Card variant="outlined">
                       <div>
-                        {i.start.split(" ")[1]} at {i.country}
+                        <div>
+                          {i.start.split(" ")[1]} at {i.country}
+                        </div>
+                        <div> {i.match} </div>
+                        <div></div>
                       </div>
-                      <div> {i.match} </div>
-                      <div></div>
-                    </div>
+                    </Card>
                   );
                 })}
               </CardContent>
@@ -53,14 +55,15 @@ export const SportItem = ({ oneElement }) => {
                 {oneElement.cricket.map((i) => {
                   console.log(i);
                   return (
-                    <div>
-                      {" "}
+                    <Card variant="outlined">
                       <div>
-                        {i.start.split(" ")[1]} at {i.country}
+                        <div>
+                          {i.start.split(" ")[1]} at {i.country}
+                        </div>
+                        <div> </div>
+                        <div>{i.match} </div>
                       </div>
-                      <div> </div>
-                      <div>{i.match} </div>
-                    </div>
+                    </Card>
                   );
                 })}
               </CardContent>
@@ -86,7 +89,6 @@ export const SportItem = ({ oneElement }) => {
                   console.log(i);
                   return (
                     <div>
-                      {" "}
                       <div>
                         {i.start.split(" ")[1]} at {i.country}
                       </div>

@@ -4,11 +4,14 @@ import { useDispatch } from "react-redux/es/exports";
 import { addNewUser } from "../../rdx/weatherSportUser/user/actionsUser";
 import { selectUser } from "../../rdx/weatherSportUser/user/selectorsU";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+
+import "./UserForm.css";
 
 export const UserForm = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const fromPage = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
 
   const user = useSelector(selectUser);
 
@@ -72,6 +75,7 @@ export const UserForm = () => {
     phone,
     password,
   };
+
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
@@ -80,18 +84,19 @@ export const UserForm = () => {
         localStorage.setItem("userData", JSON.stringify(logInUserData));
         console.log(localStorage.getItem("userData"));
         dispatch(addNewUser(logInUserData));
+        navigate("/", { replace: true });
       } else console.log("input valid email");
     },
     [userName, lastName, email, phone, password, dispatch]
   );
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="userForm" onSubmit={onSubmit}>
       {/* <div> you get from {fromPage}</div> */}
+      <div className="title">Please LogIn </div>
+      {/* to check the forecast */}
       <br />
-      <br />
-      <div>Please logIn to check the forecast</div>
-      <div>Name:</div>
+      {/* <div>Name:</div> */}
       <input
         type="text"
         value={userName}
@@ -100,7 +105,8 @@ export const UserForm = () => {
         required
       />
       <br />
-      <div>Last Name:</div>
+      <br />
+      {/* <div>Last Name:</div> */}
       <input
         type="text"
         value={lastName}
@@ -109,37 +115,50 @@ export const UserForm = () => {
         placeholder="LastName"
       />
       <br />
-      <div>E-mail:</div>
+      <br />
+      {/* <div>E-mail:</div> */}
       <input
         type="text"
         value={email}
         onChange={onEmailChanged}
         required
-        placeholder="NameLastName@gmail.com"
-      />{" "}
+        placeholder="E-mail: NameLastName@gmail.com"
+      />
       {email && !validEmail && (
         <span className="error">Enter a valid email</span>
       )}
       <br />
-      <div>Phone:</div>
+      <br />
+      {/* <div>Phone:</div> */}
       <input
         type="text"
         value={phone}
         onChange={onPhoneChanged}
         required
         pattern="+[0-9]"
-        placeholder="+380990000000"
+        placeholder="Phone: +380990000000"
       />
       <br />
-      <div>Password:</div>
+      <br />
+      {/* <div>Password:</div> */}
       <input
         type="password"
         value={password}
         onChange={onPasswordChanged}
         required
+        placeholder="Password"
       />
-      <br />
-      <input type={"submit"} value={"Submit"} />
+      <br /> <br />
+      {/* <input type={"submit"} value={"LogIn"} /> */}
+      <Button
+        type="submit"
+        variant="contained"
+        size="small"
+        value={"LogIn"}
+        className="login_btn"
+      >
+        LogIn
+      </Button>
     </form>
   );
 };

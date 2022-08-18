@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* background-image: url(https://freepngimg.com/thumb/weather/23793-9-weather-photos-thumb.png); 
+  background-image: url(https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ymx1ZSUyMHNreSUyMGJhY2tncm91bmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+   background-size:auto;
+  background-repeat:no-repeat;
+  background-color: rgb(250, 250, 250); */
 }
 
 code {

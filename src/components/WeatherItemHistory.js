@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { Card, CardContent, Box } from "@mui/material";
 import { Hours } from "./Hours";
+import "./Weather.css";
 
 export const WeatherItemHistory = ({ oneElementHistory, unitsUser }) => {
   const [show, setShow] = useState(false);
@@ -9,24 +10,24 @@ export const WeatherItemHistory = ({ oneElementHistory, unitsUser }) => {
     (event) => {
       event.preventDefault();
       console.log(event);
-      setShow(true);
+      setShow(!show);
     },
-    [setShow]
+    [show, setShow]
   );
 
   return (
     <div>
       {oneElementHistory.forecast ? (
         <div>
-          <br />
+          {/* <br />
           <div>{oneElementHistory.location.name}</div>
           <div>{oneElementHistory.location.country}</div>
-          <br />
+          <br /> */}
 
           {oneElementHistory.forecast.forecastday.map((i) => {
             return (
-              <button onClick={buttonOnHourClick}>
-                by hours
+              <button onClick={buttonOnHourClick} className="cardButtonHours">
+                <div className="by_hours">by hours</div>
                 <Box
                   className="Boxes"
                   key={i.date}
@@ -35,28 +36,40 @@ export const WeatherItemHistory = ({ oneElementHistory, unitsUser }) => {
                   <Card variant="outlined">
                     <CardContent>
                       <div>
-                        <div>{i.date}</div>
-
+                        <div className="date">{i.date}</div>
+                        <br />
+                        {/* <div>{i.date}</div> */}
                         {unitsUser ? (
                           <div>
-                            <div>Temperature {i.day.maxtemp_c} C</div>
+                            <div className="Temp"> {i.day.maxtemp_c} C</div>
+                            {/* Temperature */}
                             <div>
                               <img src={i.day.condition.icon} />
                             </div>
-                            <div>Wind {i.day.maxwind_kph}km/h</div>
-                            <div>Humidity {i.day.avghumidity}</div>
+                            <div className="weath_sum">
+                              <div>{i.day.condition.text}</div>
+                            </div>
+                            <br />
+                            <div>Wind...... {i.day.maxwind_mph}m/h</div>
+                            <div>Humidity........... {i.day.avghumidity}</div>
                           </div>
                         ) : (
                           <div>
-                            <div>Temperature {i.day.maxtemp_f} F</div>
+                            <div className="Temp"> {i.day.maxtemp_f} F</div>
+                            {/* Temperature */}
                             <div>
                               <img src={i.day.condition.icon} />
                             </div>
-                            <div>Wind {i.day.maxwind_mph}m/h</div>
-                            <div>Humidity {i.day.avghumidity}</div>
+                            <div className="weath_sum">
+                              <div>{i.day.condition.text}</div>
+                            </div>
+                            <br />
+                            <div>Wind...... {i.day.maxwind_kph}km/h</div>
+                            <div>Humidity......... {i.day.avghumidity}</div>
                           </div>
                         )}
-                        {show && (
+
+                        {show ? (
                           <div>
                             {i.hour.map((h) => (
                               <Hours
@@ -66,16 +79,9 @@ export const WeatherItemHistory = ({ oneElementHistory, unitsUser }) => {
                               ></Hours>
                             ))}
                           </div>
+                        ) : (
+                          <div></div>
                         )}
-
-                        {/* 
-                          return (
-                            <div>
-                              <div>{ii.time}</div>
-                              <div>{ii.temp_c} C</div>
-                            </div>
-                          );
-                        })} */}
                       </div>
                     </CardContent>
                   </Card>

@@ -1,0 +1,27 @@
+.Temp{
+    font-size: 30px;
+    color:#1976d2; 
+}
+/* .cityName{
+    font-size: 30px;
+} */
+.date{
+    font-weight: bold;
+}
+.weath_sum{
+    font-size: 14px;
+    color:gray;
+}
+.by_hours{
+    font-size: 12px;
+    color:gray;
+}
+.metr_imper{
+    font-size: 12px;
+    color:gray;
+}
+.cardButtonHours{
+    border: none;
+    
+    border-radius: 8px;
+}

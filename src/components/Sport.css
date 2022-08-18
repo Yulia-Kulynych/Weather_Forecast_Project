@@ -1,6 +1,8 @@
 .Fb_Cr_G{
    display: flex;
    flex-direction: row;
+   /* justify-content:center; */
+   /* align-items:stretch; */
 }
 .iconF{
    width: 50px;

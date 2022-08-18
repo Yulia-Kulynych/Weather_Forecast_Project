@@ -11,6 +11,5 @@ export const RequireAuth = ({ children }) => {
   if (auth.userName == "") {
     return <Navigate to="../logIn" from state={{ from: location }} />;
   }
-
   return children;
 };
