@@ -122,7 +122,7 @@ export const UserForm = () => {
         value={email}
         onChange={onEmailChanged}
         required
-        placeholder="E-mail: NameLastName@gmail.com"
+        placeholder="E-mail: lastname@gmail.com"
       />
       {email && !validEmail && (
         <span className="error">Enter a valid email</span>

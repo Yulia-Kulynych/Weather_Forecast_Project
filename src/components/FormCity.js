@@ -36,6 +36,7 @@ export const FormCity = () => {
     [dispatch, city]
   );
   const options = [
+    "",
     "Rome",
     "Lisbon",
     "London",

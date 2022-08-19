@@ -1,5 +1,14 @@
 .hours{
     font-size: 14px;
     color:gray;
+    width: 300px;
     
+}
+table {
+    width: 100%;
+    vertical-align:middle;
+    word-wrap: break-word;  
+}
+td {
+    width: 25%;
 }
